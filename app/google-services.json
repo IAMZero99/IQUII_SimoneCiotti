@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "672106920223",
+    "firebase_url": "https://iquii-9b747-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "iquii-9b747",
+    "storage_bucket": "iquii-9b747.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672106920223:android:1d1b1649a05375d9c9182a",
+        "android_client_info": {
+          "package_name": "com.example.iquii"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672106920223-sh8ba49kqr5qhs2g4755q97j9k55m6hp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRhv10cLttY4uUaFrjALPgZSDqDdYL9Bg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672106920223-sh8ba49kqr5qhs2g4755q97j9k55m6hp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

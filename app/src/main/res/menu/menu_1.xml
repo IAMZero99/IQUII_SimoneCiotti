@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/pokedek" android:title="Pokedex" android:icon="@drawable/list_asset"/>
+    <item android:id="@+id/pokemon" android:title="Pokemon" android:icon="@drawable/favourite"/>
+
+</menu>

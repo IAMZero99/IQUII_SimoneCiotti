@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/red"
+    tools:context=".DetailedPokemon">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back_pokemon_detail"
+        app:layout_constraintTop_toBottomOf="@id/guideline_TopView" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_TopView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:transitionName="imageTransition"
+        app:layout_constraintTop_toTopOf="@id/guideline_TopView" />
+
+    <TextView
+        android:id="@+id/id"
+        android:focusableInTouchMode="true"
+        android:transitionName="codeTransition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:text="code"
+        android:textColor="@color/black"
+        android:textSize="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_TopView" />
+
+    <TextView
+        android:id="@+id/name"
+        android:focusableInTouchMode="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="name"
+        android:transitionName="nameTransition"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image" />
+
+    <TextView
+        android:id="@+id/hp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="hp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/vertical_statics"
+        app:layout_constraintTop_toBottomOf="@id/name" />
+
+    <TextView
+        android:id="@+id/attack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="attack"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/vertical_statics"
+        app:layout_constraintTop_toBottomOf="@id/hp" />
+
+    <TextView
+        android:id="@+id/defense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="defense"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/vertical_statics"
+        app:layout_constraintTop_toBottomOf="@id/attack" />
+
+    <TextView
+        android:id="@+id/special_attack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="special-attack"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/vertical_statics"
+        app:layout_constraintTop_toBottomOf="@id/defense" />
+
+    <TextView
+        android:id="@+id/special_defence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="special-defense"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/vertical_statics"
+        app:layout_constraintTop_toBottomOf="@id/special_attack" />
+
+    <TextView
+        android:id="@+id/speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="speed"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/vertical_statics"
+        app:layout_constraintTop_toBottomOf="@id/special_defence" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/hp_bar"
+        android:layout_width="200dp"
+        android:layout_height="3dp"
+        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintTop_toTopOf="@id/hp"
+        app:layout_constraintBottom_toBottomOf="@id/hp" />
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/attack_bar"
+        android:layout_width="200dp"
+        android:layout_height="3dp"
+        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintTop_toTopOf="@id/attack"
+        app:layout_constraintBottom_toBottomOf="@id/attack"/>
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/defense_bar"
+        android:layout_width="200dp"
+        android:layout_height="3dp"
+        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintTop_toTopOf="@id/defense"
+        app:layout_constraintBottom_toBottomOf="@id/defense"/>
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/special_attack_bar"
+        android:layout_width="200dp"
+        android:layout_height="3dp"
+        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintTop_toTopOf="@id/special_attack"
+        app:layout_constraintBottom_toBottomOf="@id/special_attack"/>
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/special_defense_bar"
+        android:layout_width="200dp"
+        android:layout_height="3dp"
+        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintTop_toTopOf="@id/special_defence"
+        app:layout_constraintBottom_toBottomOf="@id/special_defence"/>
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/speed_bar"
+        android:layout_width="200dp"
+        android:layout_height="3dp"
+        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintTop_toTopOf="@id/speed"
+        app:layout_constraintBottom_toBottomOf="@id/speed"/>
+
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_TopView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_statics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/linear_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="@id/hp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
