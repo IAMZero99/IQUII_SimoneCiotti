@@ -2,15 +2,17 @@ package com.example.iquii
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.*
+
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -33,8 +35,10 @@ class Pokelist : Fragment() {
     private lateinit var firedata : DatabaseReference
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
@@ -48,6 +52,7 @@ class Pokelist : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_pokelist, container, false)
     }
+
 
     companion object {
         /**
@@ -88,12 +93,12 @@ class Pokelist : Fragment() {
     private fun getData(){
 //Inizializzazione dell'istanza per il collegamento al Database, nel ramo Pokemon
         firedata = FirebaseDatabase.getInstance("https://iquii-9b747-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Pokemon")
+        firedata.keepSynced(true)
 //EventListener usato per il caricamento
-        firedata.addValueEventListener(object : ValueEventListener {
+        firedata.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if ( snapshot.exists()){
-                    //In caso di aggiornamento dei dati la lista si resetta
-                    ArrayList.clear()
+
+
                     //caricamento dei dati in for con riferimento alle variabili nella classe Item
                     for (PokSnapshot in snapshot.children){
                         val po = PokSnapshot.getValue(Item::class.java)
@@ -106,8 +111,9 @@ class Pokelist : Fragment() {
                     recyclerView.adapter = adapter
 
 
-                }
+
             }
+
 
 
             override fun onCancelled(error: DatabaseError) {
@@ -118,6 +124,7 @@ class Pokelist : Fragment() {
 
 
     }
+
 
 
 

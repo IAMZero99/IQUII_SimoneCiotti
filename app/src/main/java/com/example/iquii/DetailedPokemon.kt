@@ -3,6 +3,8 @@ package com.example.iquii
 import android.animation.ObjectAnimator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
+import android.view.Window
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -17,7 +19,11 @@ class DetailedPokemon : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
+        window.exitTransition
         setContentView(R.layout.activity_detailed_pokemon)
+
+
 
         //creazione delle variabili e inizializzazione degli item nel layout di dettaglio
 
@@ -37,6 +43,7 @@ class DetailedPokemon : AppCompatActivity() {
         Glide.with(this).load(imgPort).into(image)
         //inizializzazione riferimento al database, nel ramo dell'item di riferimento, eseguito tramite nome.
         statsData = FirebaseDatabase.getInstance("https://iquii-9b747-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Pokemon/"+namePort+"/stats")
+        statsData.keepSynced(true)
         //richiamo funzione loadBars()
         loadBars()
 
@@ -93,5 +100,13 @@ class DetailedPokemon : AppCompatActivity() {
 
 
 
+
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item?.itemId == android.R.id.home) {
+            //to reverse the scene transition animation
+            supportFinishAfterTransition()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
